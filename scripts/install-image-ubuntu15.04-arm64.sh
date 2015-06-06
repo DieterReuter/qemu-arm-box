@@ -15,7 +15,7 @@ fi
 if [ -d "$DIRECTORY" ]; then
   cd $DIRECTORY
 
-  # modify the image for using login credentials user=ubuntu,pwassword=ubuntu
+  # modify the image for using login credentials user=ubuntu,password=ubuntu
   if [ ! -f "vivid-server-cloudimg-arm64-uefi1-modified.img" ]; then
 #---IMAGE-MOUNTING---
 #qemu-img convert -c -O qcow2 vivid-server-cloudimg-arm64-uefi1.img vivid-server-cloudimg-arm64-uefi1-modified.img
