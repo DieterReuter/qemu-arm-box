@@ -6,14 +6,17 @@
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'digital_ocean'
 
 Vagrant.configure('2') do |config|
-  config.vm.define :"devbox-qemu-arm" do |box|
+  config.vm.define :"qemu-arm-box" do |box|
     box.ssh.forward_agent = true
     box.ssh.private_key_path = '~/.ssh/id_rsa'
-    box.vm.hostname = "devbox-qemu-arm"
+    box.vm.hostname = "qemu-arm-box"
     box.vm.box = 'digital_ocean'
     box.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
 
     box.vm.provision "shell", path: "scripts/provision.sh", privileged: false
+    box.vm.provision "shell", path: "scripts/install-qemu-aarch64.sh", privileged: false
+    box.vm.provision "shell", path: "scripts/install-uefi-bootdisk.sh", privileged: false
+    box.vm.provision "shell", path: "scripts/install-image-ubuntu15.04-arm64.sh", privileged: false
   end
 
   config.vm.provider :digital_ocean do |provider|

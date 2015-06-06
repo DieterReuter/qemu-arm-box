@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# install Qemu tools
+# install QEMU tools
 sudo apt-get install -y qemu-system-aarch64
