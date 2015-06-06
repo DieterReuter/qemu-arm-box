@@ -17,7 +17,7 @@ Vagrant.configure('2') do |config|
     box.vm.provision "shell", path: "scripts/install-qemu-aarch64.sh", privileged: false
     box.vm.provision "shell", path: "scripts/install-uefi-bootdisk.sh", privileged: false
     box.vm.provision "shell", path: "scripts/install-image-ubuntu15.04-arm64.sh", privileged: false
-    #box.vm.provision "shell", path: "scripts/install-network-bridge.sh", privileged: false
+    box.vm.provision "shell", path: "scripts/install-network-bridge.sh", privileged: false
   end
 
   config.vm.provider :digital_ocean do |provider|
