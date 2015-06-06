@@ -13,6 +13,10 @@ Some usefull Vagrant commands for DigitalOcean:
 vagrant digitalocean-list -r images $DIGITAL_OCEAN_TOKEN
 ```
 
+## Resources
+https://github.com/smilejay/kvm-book/blob/master/scripts/qemu-ifup-NAT
+https://github.com/smilejay/kvm-book/blob/master/scripts/qemu-ifdown-NAT
+
 
 # Run the QEMU machine and login
 Start a new Droplet and QEMU and the ARM64 image will be automatically provisioned.
