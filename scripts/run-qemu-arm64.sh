@@ -9,5 +9,5 @@ sudo qemu-system-aarch64 -m 768 -cpu cortex-a57 -M virt -nographic \
   -pflash $HOME/qemu/bootdisk/flash0.img \
   -pflash $HOME/qemu/bootdisk/flash1.img \
   -drive if=none,file=$HOME/qemu/images/arm64/vivid-server-cloudimg-arm64-uefi1-modified.img,id=hd0 \
-  -device virtio-blk-device,drive=hd0 
-  #-device virtio-net-device,netdev=net0,mac=$MAC_ADDRESS -netdev tap,id=net0,script=/etc/qemu-ifup-br
+  -device virtio-blk-device,drive=hd0 \
+  -device virtio-net-device,netdev=net0,mac=$MAC_ADDRESS -netdev tap,id=net0,script=/etc/qemu-ifup
