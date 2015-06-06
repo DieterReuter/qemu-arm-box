@@ -2,8 +2,10 @@
 
 # install dependencies
 sudo apt-get install -y bridge-utils iptables dnsmasq
-sudo update-rc.d dnsmasq disable
-sudo update-rc.d dnsmasq remove
+
+# disable dnsmasq, because we need it for QEMU NAT networking
+sudo systemctl stop dnsmasq.service
+sudo systemctl disable dnsmasq.service
 
 # deploy QEMU bridge start script
 cp /vagrant/files/etc/qemu-ifup-NAT /etc/qemu-ifup
