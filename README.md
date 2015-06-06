@@ -27,15 +27,18 @@ Run the QEMU machine, this takes some time.
 ```
 Now use the credentials `username=ubuntu`, `password=ubuntu` to login into the QEMU machine.
 
-To logout and stop the QEMU machine, kust use:
+To logout and stop the QEMU machine, just use:
 ```
 sudo poweroff
 ```
 
 
 # TODO
-- [ ] create network bridge
-- [ ] attach network on start of QEMU machine
+- [x] create network bridge
+- [x] attach network on start of QEMU machine
+- [x] switch to QEMU NAT network bridge
+- [ ] QEMU machine didn't get an IPv4 address
+
 
 
 DR, 2015
