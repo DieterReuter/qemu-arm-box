@@ -1,4 +1,6 @@
 
+# WIP - this readme is work-in-progess
+(but the good thing is, the software is absolute ready to run)
 
 ## Requirements for Vagrant
 You'll need `vagrant` and the `vagrant-digitalocean` plugin on your host machine to create a Digital Ocean droplet. For a detailed description of this plugin, just visit the GH repo https://github.com/smdahlen/vagrant-digitalocean.
