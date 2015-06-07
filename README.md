@@ -37,12 +37,7 @@ sudo poweroff
 ```
 
 
-# TODO
-- [x] create network bridge
-- [x] attach network on start of QEMU machine
-- [x] switch to QEMU NAT network bridge
-- [ ] QEMU machine didn't get an IPv4 address
+---
+The MIT License (MIT)
 
-
-
-DR, 2015
+Copyright (c) 2015 Dieter Reuter
