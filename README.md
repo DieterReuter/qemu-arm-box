@@ -20,10 +20,21 @@ https://github.com/smilejay/kvm-book/blob/master/scripts/qemu-ifup-NAT
 https://github.com/smilejay/kvm-book/blob/master/scripts/qemu-ifdown-NAT
 
 
-# Run the QEMU machine and login
-Start a new Droplet and QEMU and the ARM64 image will be automatically provisioned.
+# Create a local VirtualBox machine
+```
+vagrant up --provider virtualbox
+vagrant ssh
+```
+Or short version, because the Vagrant provider `virtualbox` is the default provider.
 ```
 vagrant up
+vagrant ssh
+```
+
+# Create a DigitalOcean Droplet
+Start a new Droplet and QEMU and the ARM64 image will be automatically provisioned.
+```
+vagrant up --provider digital_ocean
 vagrant ssh
 ```
 
