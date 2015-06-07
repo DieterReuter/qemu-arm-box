@@ -8,7 +8,7 @@ sudo systemctl stop dnsmasq.service
 sudo systemctl disable dnsmasq.service
 
 # deploy QEMU bridge start script
-cp /vagrant/files/etc/qemu-ifup-NAT /etc/qemu-ifup
-chmod 755 /etc/qemu-ifup
-cp /vagrant/files/etc/qemu-ifdown-NAT /etc/qemu-ifdown
-chmod 755 /etc/qemu-ifdown
+sudo cp /vagrant/files/etc/qemu-ifup-NAT /etc/qemu-ifup
+sudo chmod 755 /etc/qemu-ifup
+sudo cp /vagrant/files/etc/qemu-ifdown-NAT /etc/qemu-ifdown
+sudo chmod 755 /etc/qemu-ifdown
