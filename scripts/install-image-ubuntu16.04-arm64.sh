@@ -7,8 +7,8 @@ if [ ! -d "$DIRECTORY" ]; then
   cd $DIRECTORY
 
   # download a stock Ubuntu Cloud Image
-  if [ ! -f "vivid-server-cloudimg-arm64-uefi1.img" ]; then
-    wget -q http://cloud-images.ubuntu.com/vivid/20150602/vivid-server-cloudimg-arm64-uefi1.img
+  if [ ! -f "xenial-server-cloudimg-arm64-uefi1.img" ]; then
+    wget -q http://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-arm64-uefi1.img
   fi
 fi
 
@@ -16,18 +16,18 @@ if [ -d "$DIRECTORY" ]; then
   cd $DIRECTORY
 
   # modify the image for using login credentials user=ubuntu,password=ubuntu
-  if [ ! -f "vivid-server-cloudimg-arm64-uefi1-modified.img" ]; then
+  if [ ! -f "xenial-server-cloudimg-arm64-uefi1-modified.img" ]; then
 #---IMAGE-MOUNTING---
-#qemu-img convert -c -O qcow2 vivid-server-cloudimg-arm64-uefi1.img vivid-server-cloudimg-arm64-uefi1-modified.img
-cp vivid-server-cloudimg-arm64-uefi1.img vivid-server-cloudimg-arm64-uefi1-modified.img
-qemu-img resize vivid-server-cloudimg-arm64-uefi1-modified.img 5G
+#qemu-img convert -c -O qcow2 xenial-server-cloudimg-arm64-uefi1.img xenial-server-cloudimg-arm64-uefi1-modified.img
+cp xenial-server-cloudimg-arm64-uefi1.img xenial-server-cloudimg-arm64-uefi1-modified.img
+qemu-img resize xenial-server-cloudimg-arm64-uefi1-modified.img 5G
 sudo modprobe nbd
-sudo qemu-nbd -c /dev/nbd0 `pwd`/vivid-server-cloudimg-arm64-uefi1-modified.img
+sudo qemu-nbd -c /dev/nbd0 `pwd`/xenial-server-cloudimg-arm64-uefi1-modified.img
 mkdir -p image
 sudo mount /dev/nbd0p1 image
 #---IMAGE-MOUNTING---
 #---IMAGE-MODIFICATION---
-sudo sed -ri 's|(/boot/vmlinuz-3.19.0-18-generic\s*root=LABEL=cloudimg-rootfs.*)$|\1 ds=nocloud|' image/boot/grub/grub.cfg
+sudo sed -ri 's|(/boot/vmlinuz-4.4.0-28-generic\s*root=LABEL=cloudimg-rootfs.*)$|\1 ds=nocloud|' image/boot/grub/grub.cfg
 sudo sed -ri 's|^(GRUB_CMDLINE_LINUX_DEFAULT=).*$|\1" ds=nocloud"|' image/etc/default/grub
 
 sudo sed -ri 's|^#(GRUB_TERMINAL=console)$|\1|' image/etc/default/grub

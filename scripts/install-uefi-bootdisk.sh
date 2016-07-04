@@ -7,7 +7,7 @@ if [ ! -d "$DIRECTORY" ]; then
   cd $DIRECTORY
 
   if [ ! -f "QEMU_EFI.fd" ]; then
-    wget -q http://releases.linaro.org/15.01/components/kernel/uefi-linaro/release/qemu64-intelbds/QEMU_EFI.fd
+    wget -q http://releases.linaro.org/15.05/components/kernel/uefi-linaro/release/qemu64/QEMU_EFI.fd
   fi
 
   if [ ! -f "flash0.img" ]; then
