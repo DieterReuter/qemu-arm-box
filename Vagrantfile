@@ -5,7 +5,7 @@
 ENV["VAGRANT_DEFAULT_PROVIDER"] = "virtualbox"
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "boxcutter/ubuntu1504"
+  config.vm.box = "geerlingguy/ubuntu1604"
 
   config.vm.provider :virtualbox do |virtualbox|
     virtualbox.cpus = 1
@@ -18,7 +18,7 @@ Vagrant.configure(2) do |config|
     override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
 
     ocean.token = ENV["DIGITAL_OCEAN_TOKEN"]
-    ocean.image = "ubuntu-15-04-x64"
+    ocean.image = "ubuntu-16-04-x64"
     ocean.region = "fra1"
     ocean.size = "1gb"
   end
@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
     box.vm.provision "shell", path: "scripts/provision.sh", privileged: false
     box.vm.provision "shell", path: "scripts/install-qemu-aarch64.sh", privileged: false
     box.vm.provision "shell", path: "scripts/install-uefi-bootdisk.sh", privileged: false
-    box.vm.provision "shell", path: "scripts/install-image-ubuntu15.04-arm64.sh", privileged: false
+    box.vm.provision "shell", path: "scripts/install-image-ubuntu16.04-arm64.sh", privileged: false
     box.vm.provision "shell", path: "scripts/install-network-bridge.sh", privileged: false
   end
 end
